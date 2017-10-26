@@ -1,0 +1,7 @@
+%ul
+  -Artist.all.sort_by(&:name).each do |artist|
+    %li
+      =artist.name
+      %ul
+        -artist.songs.each do |song|
+          %li=song.title
