@@ -12,6 +12,9 @@ gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'hamlit'
+gem 'typhoeus'
+gem 'selenium-webdriver'
+gem 'chromedriver-helper'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'coffee-rails'
