@@ -1,4 +1,7 @@
-Popfortune
-#{Artist.count} artists and #{Song.count} songs
+.header
+  .logo= image_tag "logo.png"
+  .radio= image_tag "radio.png"
+
+%p #{Artist.count} artists and #{Song.count} songs
 
 =render 'artists/index'
