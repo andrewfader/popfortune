@@ -22,4 +22,16 @@ class Song < ActiveRecord::Base
   def price_on(date)
     days.where("date <= #{date.strftime("%Y-%m-%d")} & date >= #{(date - 7.days).strftime("%Y-%m-%d")}").map(&:streams)
   end
+
+  def up_or_down?
+    price > price_on(Date.yesterday) ?  "up" : "down"
+  end
+
+  def bid
+    (price - 1).round(2)
+  end
+
+  def ask
+    (price + 1).round(2)
+  end
 end

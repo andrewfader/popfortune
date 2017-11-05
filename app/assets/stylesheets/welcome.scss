@@ -1,22 +1,24 @@
-.header {
-  align-items: center;
-  display: flex;
+body {
+  font-family: "Noto Sans";
+  background-color: #014670;
 }
-.logo, .radio {
-  display: inline;
-  padding: 0px;
-  margin: 10px;
+.price {
+  float: right;
+  font-size: 1.4em;
+  &.up {
+    color: darkgreen;
+  }
+  &.down {
+    color: red;
+  }
 }
-.logo {
-  width: 24%;
+.artist {
+  font-weight: normal;
+  font-size: .9em;
 }
-.logo img {
-  margin: 0;
-  width: 100%;
-  display: inline-block;
-}
-.radio img {
-  margin: 0;
-  width: 70%;
-  display: inline-block;
+.number {
+  float: left;
+  padding: 2px;
+  font-size: 2em;
+  color: orange;
 }

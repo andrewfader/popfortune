@@ -15,16 +15,14 @@ gem 'hamlit'
 gem 'typhoeus'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
-# gem 'therubyracer', platforms: :ruby
+gem 'rspotify'
 gem 'bourbon'
-gem 'neat'
+gem 'neat', '~>1.8'
 gem 'refills'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'
-# gem 'redis', '~> 3.0'
-# gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

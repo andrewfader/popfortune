@@ -1,13 +1,24 @@
-.header
-  .logo= image_tag "logo.png"
-  .radio= image_tag "radio.png"
+%header.header.navigation{role: 'banner'}
+  .navigation-wrapper
+    %a.logo
+      = image_tag "logo.png"
+      = image_tag "radio.png"
+    %nav{role: 'navigation'}
 
-%p #{Artist.count} artists and #{Song.count} songs
+%p
 
-%ol
-  -Song.by_price.each do |song|
-    %li #{song.title} $#{song.price}
-
-
-
--# =render 'artists/index'
+.cards
+  -Song.by_price[0..99].each_with_index do |song, index|
+    .card
+      .card-image
+        .number
+          #{index + 1}
+      .card-header
+        .title
+          #{song.title}
+        .price{class: song.up_or_down?}
+          $#{song.price}
+        .artist
+          #{song.artist}
+      .card-copy
+        Bid: #{song.bid} Ask: #{song.ask}
