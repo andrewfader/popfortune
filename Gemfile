@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.1.4'
-gem 'sqlite3'
+gem 'rails'
+gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
@@ -16,7 +16,10 @@ gem 'typhoeus'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
 # gem 'therubyracer', platforms: :ruby
-
+gem 'bourbon'
+gem 'neat'
+gem 'refills'
+gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'

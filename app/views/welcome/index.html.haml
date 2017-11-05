@@ -4,4 +4,10 @@
 
 %p #{Artist.count} artists and #{Song.count} songs
 
-=render 'artists/index'
+%ol
+  -Song.by_price.each do |song|
+    %li #{song.title} $#{song.price}
+
+
+
+-# =render 'artists/index'

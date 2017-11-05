@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171027031257) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.integer "mb_id"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171027031257) do
 
   create_table "days", force: :cascade do |t|
     t.date "date"
-    t.integer "song_id"
+    t.bigint "song_id"
     t.integer "streams"
     t.integer "position"
     t.datetime "created_at", null: false
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20171027031257) do
     t.date "first_week"
     t.integer "mb_id"
     t.integer "spotify_id"
-    t.integer "artist_id"
+    t.bigint "artist_id"
     t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20171027031257) do
 
   create_table "week", force: :cascade do |t|
     t.integer "position"
-    t.integer "song_id"
+    t.bigint "song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["song_id"], name: "index_week_on_song_id"
