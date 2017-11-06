@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Popfortune
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag "https://www.gstatic.com/charts/loader.js"
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.header.navigation{role: 'banner'}
+      .navigation-wrapper
+        %a.logo{href: songs_path}
+          = image_tag "logo.png"
+          = image_tag "radio.png"
+        %nav{role: 'navigation'}
+
+    %p
+    = yield

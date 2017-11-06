@@ -5,24 +5,26 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'rails'
+gem 'bourbon'
+gem 'chartkick'
+gem 'chromedriver-helper'
+gem 'coffee-rails'
+gem 'hamlit'
+gem 'highcharts-rails'
+gem 'html2haml'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'neat', '~>1.8'
 gem 'pg'
 gem 'puma'
-gem 'sass-rails'
-gem 'uglifier'
-gem 'haml'
-gem 'typhoeus'
-gem 'selenium-webdriver'
-gem 'chromedriver-helper'
-gem 'rspotify'
-gem 'bourbon'
-gem 'neat', '~>1.8'
+gem 'rails'
 gem 'refills'
-gem 'jquery-rails'
-gem 'coffee-rails'
+gem 'rspotify'
+gem 'sass-rails'
+gem 'selenium-webdriver'
 gem 'turbolinks'
-gem 'jbuilder'
+gem 'typhoeus'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

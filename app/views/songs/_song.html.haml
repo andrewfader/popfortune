@@ -1,4 +1,4 @@
-.card
+%a.card{href: song_path(song)}
   .card-image
     .number
       #{index + 1}
@@ -6,10 +6,10 @@
   .card-header
     .title
       #{song.title}
-    %div.price{class: song.up_or_down?}
+    .price
       #{number_to_currency(song.price)}
-      .chg
-        #{song.last_move}
+      .chg{class: song.up_or_down?}
+        #{last_move(song)}
         %br
         (#{song.pct_change}%)
     .artist

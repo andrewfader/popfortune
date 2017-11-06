@@ -52,16 +52,16 @@ class Song < ActiveRecord::Base
     (price - price_on(Date.yesterday)).round(4)
   end
 
-  def last_move
-    if change < 0
-      change.to_s[0..4].gsub("-","-$")
-    else
-      "+$#{change.to_s[0..3]}"
-    end
+  def pct_change
+    (change/price * 100).round(2)
   end
 
-  def pct_change
-    (change/price).round(2)
+  def prices(num=20)
+    prices = {}
+    (num.days.ago.to_date..Date.today.to_date).to_a.map do |date|
+      prices[date] = price_on(date).round(2)
+    end
+    prices
   end
 
   def bid

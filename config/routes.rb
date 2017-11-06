@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: "welcome#index"
+  root to: "songs#index"
+  resources :songs, only: [:show, :index]
 end

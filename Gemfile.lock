@@ -66,6 +66,7 @@ GEM
       thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
+    chartkick (2.2.5)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.1.0)
@@ -86,6 +87,7 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.7.0)
+    erubis (2.7.0)
     ethon (0.11.0)
       ffi (>= 1.3.0)
     execjs (2.7.0)
@@ -97,11 +99,22 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
+    hamlit (2.8.5)
+      temple (>= 0.8.0)
+      thor
+      tilt
     hashie (3.5.6)
+    highcharts-rails (5.0.7)
+      railties (>= 3.1)
     hirb (0.7.3)
     hirb-unicode-steakknife (0.0.8)
       hirb (~> 0.5)
       unicode-display_width (~> 1.1)
+    html2haml (2.2.0)
+      erubis (~> 2.7.0)
+      haml (>= 4.0, < 6)
+      nokogiri (>= 1.6.0)
+      ruby_parser (~> 3.5)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.1)
@@ -211,6 +224,8 @@ GEM
       omniauth-oauth2 (~> 1.3.1)
       rest-client (~> 2.0.2)
     ruby_dep (1.5.0)
+    ruby_parser (3.10.1)
+      sexp_processor (~> 4.9)
     rubyzip (1.2.1)
     sass (3.5.3)
       sass-listen (~> 4.0.0)
@@ -226,6 +241,7 @@ GEM
     selenium-webdriver (3.7.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    sexp_processor (4.10.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -273,9 +289,12 @@ DEPENDENCIES
   better_errors
   bourbon
   byebug
+  chartkick
   chromedriver-helper
   coffee-rails
-  haml
+  hamlit
+  highcharts-rails
+  html2haml
   jbuilder
   jquery-rails
   listen (>= 3.0.5, < 3.2)

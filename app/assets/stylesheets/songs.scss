@@ -1,3 +1,13 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+h1, h2 {
+  margin: 5px;
+}
+.pricebox {
+  display: inline-block;
+}
 body {
   font-family: "Noto Sans";
   background-color: #014670;
@@ -5,14 +15,14 @@ body {
 .price {
   float: right;
   font-size: 1.4em;
+}
+.chg {
+  font-size: .7em;
   &.up {
     color: darkgreen;
   }
   &.down {
     color: red;
-  }
-  .chg {
-    font-size: .7em;
   }
 }
 .artist {
@@ -34,6 +44,9 @@ body {
   color: orange;
   z-index: 99;
   position: absolute;
+}
+.chart {
+  z-index: 9999999;
 }
 .card img {
   object-fit: cover;

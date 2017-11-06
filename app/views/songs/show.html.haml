@@ -1,0 +1,15 @@
+.detail
+  .pricebox
+    %h1
+      =@song.title
+    %h2
+      =@song.artist
+  .pricebox
+    %h2
+      #{number_to_currency(@song.price)}
+      .chg{class: @song.up_or_down?}
+        #{last_move(@song)}
+        %br
+        (#{@song.pct_change}%)
+.chart
+  = line_chart @song.prices, adapter: 'google', legend: false, curve: false
