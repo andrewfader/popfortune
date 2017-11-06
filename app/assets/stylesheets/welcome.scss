@@ -11,14 +11,30 @@ body {
   &.down {
     color: red;
   }
+  .chg {
+    font-size: .7em;
+  }
 }
 .artist {
   font-weight: normal;
-  font-size: .9em;
+  font-size: 1.1em;
+  z-index: 999;
+  clear: left;
+}
+.title {
+  z-index: 999 !important;
+  font-size: 1.3em;
+  float: left;
+  max-width: 62%;
 }
 .number {
   float: left;
-  padding: 2px;
+  padding: .5em;
   font-size: 2em;
   color: orange;
+  z-index: 99;
+  position: absolute;
+}
+.card img {
+  object-fit: cover;
 }

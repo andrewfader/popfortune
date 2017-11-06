@@ -4,4 +4,14 @@ class Artist < ActiveRecord::Base
   def to_s
     name
   end
+
+  def image_url
+    if super
+      super
+    else
+      self.image_url = RSpotify::Artist.search(name).first.images.first["url"].tap{self.save!}
+      self.save!
+      super
+    end
+  end
 end

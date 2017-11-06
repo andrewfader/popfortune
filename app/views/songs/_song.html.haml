@@ -1,0 +1,18 @@
+.card
+  .card-image
+    .number
+      #{index + 1}
+    =image_tag song.artist.image_url
+  .card-header
+    .title
+      #{song.title}
+    %div.price{class: song.up_or_down?}
+      #{number_to_currency(song.price)}
+      .chg
+        #{song.last_move}
+        %br
+        (#{song.pct_change}%)
+    .artist
+      #{song.artist}
+  .card-copy
+    Bid: #{number_to_currency(song.bid)} Ask: #{number_to_currency(song.ask)}

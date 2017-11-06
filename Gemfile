@@ -11,7 +11,7 @@ gem 'pg'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
-gem 'hamlit'
+gem 'haml'
 gem 'typhoeus'
 gem 'selenium-webdriver'
 gem 'chromedriver-helper'
@@ -27,6 +27,7 @@ gem 'jbuilder'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'spirit_hands', github: 'steakknife/spirit_hands'
+  gem 'lol_dba'
 end
 
 group :development do

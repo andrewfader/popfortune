@@ -19,7 +19,7 @@ class CreateArtistsAndSongs < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    create_table :week do |t|
+    create_table :weeks do |t|
       t.integer :position
       t.belongs_to :song
       t.timestamps
