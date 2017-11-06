@@ -1,5 +1,5 @@
 class Song < ActiveRecord::Base
-  PRICE_FACTOR = 1000000
+  PRICE_FACTOR = 843_843
   belongs_to :artist
   has_many :weeks
   has_many :days
@@ -17,7 +17,7 @@ class Song < ActiveRecord::Base
   end
 
   def price
-    (streams_week.sum / PRICE_FACTOR.to_f).round(2)
+    (streams_week(7).sum / PRICE_FACTOR.to_f).round(2)
   end
 
   def title
@@ -52,6 +52,10 @@ class Song < ActiveRecord::Base
     (price - price_on(Date.yesterday)).round(4)
   end
 
+  def market_cap
+    (streams_week.sum/7.to_f)
+  end
+
   def pct_change
     (change/price * 100).round(2)
   end
@@ -59,7 +63,7 @@ class Song < ActiveRecord::Base
   def prices(num=20)
     prices = {}
     (num.days.ago.to_date..Date.today.to_date).to_a.map do |date|
-      prices[date] = price_on(date).round(2)
+      prices[date] = price_on(date)
     end
     prices
   end

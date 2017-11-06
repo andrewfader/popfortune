@@ -1,5 +1,5 @@
-.detail
-  .card
+.detail.cards
+  .card.pricebox
     .pricebox
       %h1
         =@song.title
@@ -12,6 +12,7 @@
           #{last_move(@song)}
           %br
           (#{@song.pct_change}%)
+  .card.pricebox
     .pricebox
       %h2
         Bid: #{@song.bid}
@@ -19,7 +20,7 @@
         Ask: #{@song.ask}
     .pricebox
       %h2
-        Market Cap: #{number_to_currency(@song.streams_week.sum/7)}
+        Market Cap: #{number_to_currency(@song.market_cap)}
       %h2
         PE: 1
     .pricebox
@@ -27,7 +28,19 @@
         Beta: 1
       %h2
         Vol: 1
+  .card.pricebox.action_text
+    You are not logged in.
+    %p
+    Sign up to buy shares of #{@song.title}
 
+.cards
+  .chart.card
+    = line_chart @prices, adapter: 'google', legend: false, curve: false
+  .card
 
-.chart.card
-  = line_chart @song.prices, adapter: 'google', legend: false, curve: false
+.card
+  -[10,20,50,100,300].each do |d|
+    =link_to "#{d}d", "?d=#{d}"
+.cards
+  .card
+  .card

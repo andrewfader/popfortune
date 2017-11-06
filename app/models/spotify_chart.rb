@@ -32,7 +32,7 @@ class SpotifyChart
       processed = []
       begin
         driver = Selenium::WebDriver.for :chrome
-        (date1..date2).to_a.each do |date|
+        (date1.to_date..date2.to_date).to_a.each do |date|
           date = date.strftime('%Y-%m-%d')
           filename = "/home/andrew/Downloads/regional-global-daily-#{date}.csv"
           unless File.exist?(filename)

@@ -11,9 +11,8 @@
     %header.header.navigation{role: 'banner'}
       .navigation-wrapper
         %a.logo{href: songs_path}
-          = image_tag "logo.png"
           = image_tag "radio.png"
-        %nav{role: 'navigation'}
+          = image_tag "logo.png", alt: "PopFortune", title: "PopFortune"
 
     %p
     = yield

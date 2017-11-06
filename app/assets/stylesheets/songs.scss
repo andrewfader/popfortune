@@ -5,8 +5,22 @@ a {
 h1, h2 {
   margin: 5px;
 }
+.action_text {
+  padding: 12px;
+  font-size: 1.2em;
+}
+
 .pricebox {
+  min-height: 123px;
   display: inline-block;
+  &:nth-child(1) {
+    max-width: 300px;
+  }
+}
+a.logo {
+  img:nth-child(1) {
+    margin-right: 24px;
+  }
 }
 body {
   font-family: "Noto Sans";
