@@ -1,15 +1,33 @@
 .detail
-  .pricebox
-    %h1
-      =@song.title
-    %h2
-      =@song.artist
-  .pricebox
-    %h2
-      #{number_to_currency(@song.price)}
-      .chg{class: @song.up_or_down?}
-        #{last_move(@song)}
-        %br
-        (#{@song.pct_change}%)
-.chart
+  .card
+    .pricebox
+      %h1
+        =@song.title
+      %h2
+        =@song.artist
+    .pricebox
+      %h2
+        #{number_to_currency(@song.price)}
+        .chg{class: @song.up_or_down?}
+          #{last_move(@song)}
+          %br
+          (#{@song.pct_change}%)
+    .pricebox
+      %h2
+        Bid: #{@song.bid}
+      %h2
+        Ask: #{@song.ask}
+    .pricebox
+      %h2
+        Market Cap: #{number_to_currency(@song.streams_week.sum/7)}
+      %h2
+        PE: 1
+    .pricebox
+      %h2
+        Beta: 1
+      %h2
+        Vol: 1
+
+
+.chart.card
   = line_chart @song.prices, adapter: 'google', legend: false, curve: false
