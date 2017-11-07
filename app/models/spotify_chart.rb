@@ -2,8 +2,20 @@ require "selenium-webdriver"
 require 'csv'
 class SpotifyChart
   class << self
-    def process_date(date, filename)
+    def process_date(date, driver=nil)
       processed = {artists: 0, songs: 0, days:0}
+      date = date.strftime('%Y-%m-%d')
+      filename = "/home/andrew/Downloads/regional-global-daily-#{date}.csv"
+      driver ||= Selenium::WebDriver.for :chrome
+      unless File.exist?(filename)
+        url =  "https://spotifycharts.com/regional/global/daily/#{date}/download"
+        driver.navigate.to url
+      end
+
+      if !File.exist?(filename)
+        sleep 1
+      end
+
       CSV.parse(File.open(filename)) do |row|
         next if row[1] == "Track Name"
         title = row[1]
@@ -30,21 +42,10 @@ class SpotifyChart
 
     def process_range(date1, date2)
       processed = []
+      driver = Selenium::WebDriver.for :chrome
       begin
-        driver = Selenium::WebDriver.for :chrome
         (date1.to_date..date2.to_date).to_a.each do |date|
-          date = date.strftime('%Y-%m-%d')
-          filename = "/home/andrew/Downloads/regional-global-daily-#{date}.csv"
-          unless File.exist?(filename)
-            url =  "https://spotifycharts.com/regional/global/daily/#{date}/download"
-            driver.navigate.to url
-          end
-
-          if !File.exist?(filename)
-            sleep 1
-          end
-
-          processed << self.process_date(date, filename)
+          processed << self.process_date(date, driver)
         end
       rescue Errno::ENOENT => e
         driver.quit
