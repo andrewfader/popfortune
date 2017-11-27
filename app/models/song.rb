@@ -41,7 +41,7 @@ class Song < ActiveRecord::Base
   end
 
   def price_on(date)
-    (days.where(date: (date - 7.days).to_date..date).map(&:streams).sum / PRICE_FACTOR).round(2)
+    (days.where(date: (date - 7.days).to_date..date).map(&:streams).sum.to_f / PRICE_FACTOR).round(2)
   end
 
   def up_or_down?
