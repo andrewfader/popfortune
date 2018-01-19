@@ -9,9 +9,14 @@ class Artist < ActiveRecord::Base
     if super
       super
     else
-      self.image_url = RSpotify::Artist.search(name).first.images.first["url"].tap{self.save!}
-      self.save!
-      super
+      images =  RSpotify::Artist.search(name).first.images
+      if images.present?
+        self.image_url = images.first["url"].tap{self.save!}
+        self.save!
+        super
+      else
+        ""
+      end
     end
   end
 end

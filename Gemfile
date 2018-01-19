@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bourbon'
+gem 'binding_of_caller'
+gem 'yt'
 gem 'chartkick'
 gem 'chromedriver-helper'
 gem 'coffee-rails'
